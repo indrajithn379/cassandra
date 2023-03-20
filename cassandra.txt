@@ -1,0 +1,30 @@
+CREATE KEYSPACE groceries WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 2};
+cqlsh>use groceries;
+cqlsh:CREATE TABLE items(
+                   ...itemid text PRIMARY KEY,
+                   ...itemname text,
+                   ...quantity int,
+                   ...MRP int,
+                   );
+cqlsh:groceries> INSERT INTO items(itemid,itemname,quantity,MRP) VALUES('RMGSU','SNACKS',20,500.00);
+cqlsh:groceries> INSERT INTO items(itemid,itemname,quantity,MRP) VALUES('RMLTI',SPICES,25,2500.00);
+cqlsh:groceries> INSERT INTO items(itemid,itemname,quantity,MRP) VALUES('RMXEI','RICE',10,1500);
+cqlsh:groceries> INSERT INTO items(itemid,itemname,quantity,MRP) VALUES('RMGVD','DETERGENTS',8,500.00);
+cqlsh:groceries> INSERT INTO items(itemid,itemname,quantity,MRP) VALUES('RMFKD','BEVERAGES',15,2000.00);
+cqlsh:groceries> INSERT INTO items(itemid,itemname,quantity,MRP) VALUES('RMGSU','SNACKS',20,500.00);
+cqlsh:groceries> INSERT INTO items(itemid,itemname,quantity,MRP) VALUES('RMGVD','BAKING ITEMS',5,250.00);
+cqlsh:groceries> INSERT INTO items(itemid,itemname,quantity,MRP) VALUES('RMGHR','MEAT',4,450.00);
+cqlsh:groceries> select * from items;
+
+ itemid | itemname     | mrp  | quantity
+--------+--------------+------+----------
+  RMGHR |         MEAT |  450 |        4
+  RMJFU |   DETERGENTS |  500 |        8
+  RMGVD | BAKING ITEMS |  250 |        5
+  RMFKD |    BEVERAGES | 2000 |       15
+  RMGSU |       SNACKS |  500 |       20
+  RMXEI |         RICE | 1500 |       10
+  RMYGD |       SNACKS |  700 |       10
+  RMLII |       SPICES | 2500 |       25
+
+(8 rows)
